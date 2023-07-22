@@ -9,4 +9,4 @@ sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>/tmp/roboshop.log
 
 echo -e "\e[33m enable and starting the mongodb\e[0m"
 systemctl enable mongod &>>/tmp/roboshop.log
-systemctl start mongod &>>/tmp/roboshop.log
+systemctl restart mongod &>>/tmp/roboshop.log
