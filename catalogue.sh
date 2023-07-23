@@ -17,7 +17,7 @@ cd /app
 
 echo -e "\e[33m unzip the catalogue file\e[0m"
 unzip /tmp/catalogue.zip &>>/tmp/roboshop.log
-cd /app &>>/tmp/roboshop.log
+cd /app
 
 echo -e "\e[33m install npm\e[0m"
 npm install &>>/tmp/roboshop.log
@@ -30,13 +30,13 @@ systemctl daemon-reload  &>>/tmp/roboshop.log
 systemctl enable catalogue &>>/tmp/roboshop.log
 systemctl start catalogue &>>/tmp/roboshop.log
 
-echo -e "\e[33m copy and install mongo client[\e0m"
-cp mongoDB.repo /etc/yum.repos.d/mongo.repo &>>/tmp/roboshop.log
+echo -e "\e[33m copy and install mongo client\e[0m"
+cp mongoDB.repo /etc/yum.repos.d/mongo.repo  &>>/tmp/roboshop.log
 
-echo -e "\e[33m install mongo-shell[\e0m"
-yum install mongodb-org-shell -y &>>/tmp/roboshop.log
+echo -e "\e[33m install mongo-shell\e[0m"
+yum install mongodb-org-shell -y  &>>/tmp/roboshop.log
 
 
-echo -e "\e[33m load the mongo scheme[\e0m"
-mongo --host catalogue-dev.devopspractice.lol </app/schema/catalogue.js &>>/tmp/roboshop.log
+echo -e "\e[33m load the mongo scheme\e[0m"
+mongo --host mongodb-dev.devopspractice.lol </app/schema/catalogue.js  &>>/tmp/roboshop.log
 
