@@ -38,5 +38,5 @@ yum install mongodb-org-shell -y  &>>/tmp/roboshop.log
 
 
 echo -e "\e[33m load the mongo scheme\e[0m"
-mongo --host 172.31.23.241 </app/schema/catalogue.js  &>>/tmp/roboshop.log
+mongo --host mongodb-dev.devopspractice.lol </app/schema/catalogue.js  &>>/tmp/roboshop.log
 
