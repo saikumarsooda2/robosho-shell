@@ -23,7 +23,7 @@ echo -e "\e[33m install npm\e[0m"
 npm install &>>/tmp/roboshop.log
 
 echo -e "\e[33m copy the catalogue repo\e[0m"
-cp ctalogue.repo /etc/systemd/system/catalogue.service &>>/tmp/roboshop.log
+cp catalogue.repo /etc/systemd/system/catalogue.service &>>/tmp/roboshop.log
 
 echo -e "\e[33m reload he server\e[0m"
 systemctl daemon-reload  &>>/tmp/roboshop.log
