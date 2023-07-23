@@ -28,7 +28,7 @@ cp ctalogue.repo /etc/systemd/system/catalogue.service &>>/tmp/roboshop.log
 echo -e "\e[33m reload he server\e[0m"
 systemctl daemon-reload  &>>/tmp/roboshop.log
 systemctl enable catalogue &>>/tmp/roboshop.log
-systemctl start catalogue &>>/tmp/roboshop.log
+systemctl restart catalogue &>>/tmp/roboshop.log
 
 echo -e "\e[33m copy and install mongo client\e[0m"
 cp mongoDB.repo /etc/yum.repos.d/mongo.repo  &>>/tmp/roboshop.log
