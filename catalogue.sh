@@ -26,8 +26,6 @@ echo -e "\e[33m Setup SystemD Service\e[0m"
 cp /home/centos/robosho-shell/catalogue.service /etc/systemd/system/catalogue.service &>>/tmp/roboshop.log
 
 
-
-
 echo -e "\e[33m Installing MongoDB Client \e[0m"
 yum install mongodb-org-shell -y &>>/tmp/roboshop.log
 
