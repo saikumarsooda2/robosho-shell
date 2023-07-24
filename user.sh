@@ -25,7 +25,7 @@ echo -e "\e[34mInstall the dependencies \e[0m"
 npm install   &>>/tmp/roboshop.log
 
 echo -e "\e[34m setup SystemD service \e[0m"
-cp /home/centos/robosho-shell/user.service /etc/systemd/system/user.service   &>>/tmp/roboshop.log
+cp user.service /etc/systemd/system/user.service   &>>/tmp/roboshop.log
 
 
 echo -e "\e[34m Reload repo \e[0m"
