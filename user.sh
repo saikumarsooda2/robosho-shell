@@ -35,3 +35,15 @@ systemctl daemon-reload   &>>/tmp/roboshop.log
 echo -e "\e[34m enable user\e[0m"
 systemctl enable user   &>>/tmp/roboshop.log
 systemctl start user    &>>/tmp/roboshop.log
+
+
+echo -e "\e[33m copy mongdb repo\e[0m"
+cp /home/centos/robosho-shell/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>/tmp/roboshop.log
+
+
+echo -e "\e[33m Installing MongoDB Client \e[0m"
+yum install mongodb-org-shell -y &>>/tmp/roboshop.log
+
+echo -e "\e[33m Load Schema \e[0m"
+mongo --host mongodb-dev.devopspractice.lol </app/schema/user.js &>>/tmp/roboshop.log
+
