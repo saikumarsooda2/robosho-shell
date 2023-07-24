@@ -30,11 +30,8 @@ cp /home/centos/robosho-shell/user.service /etc/systemd/system/user.service   &>
 
 echo -e "\e[34m Reload repo \e[0m"
 systemctl daemon-reload   &>>/tmp/roboshop.log
-
-
-echo -e "\e[34m enable user\e[0m"
 systemctl enable user   &>>/tmp/roboshop.log
-systemctl start user    &>>/tmp/roboshop.log
+systemctl restart user    &>>/tmp/roboshop.log
 
 
 echo -e "\e[33m copy mongdb repo\e[0m"
