@@ -25,7 +25,7 @@ echo -e "\e[34mInstall the dependencies \e[0m"
 npm install   &>>/tmp/roboshop.log
 
 echo -e "\e[34m setup SystemD service \e[0m"
-cp cart.service /etc/systemd/system/cart.service   &>>/tmp/roboshop.log
+cp /root/robosho-shell/cart.service /etc/systemd/system/cart.service   &>>/tmp/roboshop.log
 
 
 echo -e "\e[34m Reload repo \e[0m"
