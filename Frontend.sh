@@ -12,7 +12,7 @@ cd /usr/share/nginx/html &>//tmp/roboshop.log
 unzip /tmp/frontend.zip &>>/tmp/roboshop.log
 
 echo -e "\e[33m copying the roboshop config file \e[0m"
-cp roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
+cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
 
 echo -e "\e[33m enabling the nginx server \e[0m"
 systemctl enable nginx &>>/tmp/roboshop.log

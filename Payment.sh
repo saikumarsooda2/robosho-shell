@@ -20,7 +20,7 @@ echo -e "\e[33m Installing Dependencies\e[0m"
  pip3.6 install -r requirements.txt   &>>/tmp/roboshop.log
 
 echo -e "\e[33m Copying Payment service \e[0m"
- cp /root/robosho-shell/payment.service /etc/systemd/system/payment.service   &>>/tmp/roboshop.log
+ cp /home/centos/robosho-shell/payment.service /etc/systemd/system/payment.service   &>>/tmp/roboshop.log
 
 echo -e "\e[33m Starting Payment \e[0m"
  systemctl daemon-reload    &>>/tmp/roboshop.log
