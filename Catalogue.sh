@@ -2,7 +2,7 @@ echo -e "\e[33mConfiguring NodeJS Repos \e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/roboshop.log
 
 echo -e "\e[33m Installing NOdeJS\e[0m"
-yum install nodejs -y  &>>/tmp/roboshop.log
+yum install nodejs -y &>>/tmp/roboshop.log
 
 echo -e "\e[33mAdd Application User \e[0m"
 useradd roboshop  &>>/tmp/roboshop.log
@@ -32,7 +32,7 @@ systemctl restart catalogue &>>/tmp/roboshop.log
 
 
 echo -e "\e[33m copy mongdb repo\e[0m"
-cp /home/centos/robosho-shell/mongodb.repo  /etc/yum.repos.d/mongodb.repo &>>/tmp/roboshop.log
+cp /home/centos/robosho-shell/mongo.repo  /etc/yum.repos.d/mongo.repo &>>/tmp/roboshop.log
 
 
 echo -e "\e[33m Installing MongoDB Client \e[0m"
