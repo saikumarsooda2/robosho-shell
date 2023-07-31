@@ -1,46 +1,66 @@
-echo -e "\e[34m  Downloading the nodejs repo\e[0m"
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/roboshop.log
 
-echo -e "\e[34m Installing nodejs \e[0m"
-yum install nodejs -y &>>/tmp/roboshop.log
+component=user
+color="\e[33m"
+nocolor="\e[0m"
+app_path="/app"
+log_file="/tmp/roboshop.log"
 
+echo -e "${color}  Downloading the nodejs repo ${nocolor}"
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>log_file
+echo $?
 
-echo -e "\e[34m Adding the user \e[0m"
-useradd roboshop &>>/tmp/roboshop.log
+echo -e "${color} Installing nodejs ${nocolor}"
+yum install nodejs -y &>>log_file
+echo $?
 
-echo -e "\e[34m Creating the app \e[0m"
-rm -rf /app
-mkdir /app &>>/tmp/roboshop.log
+echo -e "${color} Adding the user ${nocolor}"
+useradd roboshop &>>log_file
+echo $?
 
-
-echo -e "\e[34m Downloading the user file \e[0m"
-curl -L -o /tmp/user.zip https://roboshop-artifacts.s3.amazonaws.com/user.zip  &>>/tmp/roboshop.log
-cd /app
-
-echo -e "\e[34m Extracing the user file  \e[0m"
-unzip /tmp/user.zip  &>>/tmp/roboshop.log
-cd /app
-
-echo -e "\e[34mInstall the dependencies \e[0m"
-npm install   &>>/tmp/roboshop.log
-
-echo -e "\e[34m setup SystemD service \e[0m"
-cp /home/centos/robosho-shell/user.service /etc/systemd/system/user.service   &>>/tmp/roboshop.log
+echo -e "${color} Creating the app ${nocolor}"
+rm -rf ${app_path}
+mkdir ${app_path} &>>log_file
+echo $?
 
 
-echo -e "\e[34m Reload repo \e[0m"
-systemctl daemon-reload   &>>/tmp/roboshop.log
-systemctl enable user   &>>/tmp/roboshop.log
-systemctl restart user    &>>/tmp/roboshop.log
+echo -e "${color} Downloading the user file ${nocolor}"
+curl -L -o /tmp/component.zip https://roboshop-artifacts.s3.amazonaws.com/component.zip  &>>log_file
+cd ${app_path}
+echo $?
+
+echo -e "${color} Extracing the user file  ${nocolor}"
+unzip /tmp/user.zip  &>>log_file
+cd ${app_path}
+echo $?
+
+echo -e "${color} Install the dependencies ${nocolor}"
+npm install   &>>log_file
+echo $?
+
+echo -e "${color} setup SystemD service ${nocolor}"
+cp /home/centos/robosho-shell/component.service /etc/systemd/system/component.service   &>>log_file
+echo $?
 
 
-echo -e "\e[33m copy mongdb repo\e[0m"
-cp /home/centos/robosho-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>>/tmp/roboshop.log
+echo -e "${color} Reload repo ${nocolor}"
+systemctl daemon-reload   &>>log_file
+echo $?
+systemctl enable component   &>>log_file
+echo $?
+systemctl restart component    &>>log_file
+echo $?
 
 
-echo -e "\e[33m Installing MongoDB Client \e[0m"
-yum install mongodb-org-shell -y &>>/tmp/roboshop.log
+echo -e "${color} copy mongdb repo ${nocolor}"
+cp /home/centos/robosho-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>>log_file
+echo $?
 
-echo -e "\e[33m Load Schema \e[0m"
-mongo --host mongodb-dev.devopspractice.lol </app/schema/user.js &>>/tmp/roboshop.log
+
+echo -e "${color} Installing MongoDB Client ${nocolor}"
+yum install mongodb-org-shell -y &>>log_file
+echo $?
+
+echo -e "${color} Load Schema${nocolor}"
+mongo --host mongodb-dev.devopspractice.lol  </app/schema/user.js &>>log_file
+echo $?
 
