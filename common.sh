@@ -26,7 +26,7 @@ nodejs() {
      echo $?
 
       echo -e "${color} Downloading the user file ${nocolor}"
-      curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/component.zip  &>>log_file
+      curl -L -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component.zip  &>>log_file
       cd ${app_path}
       echo $?
 
@@ -41,16 +41,16 @@ nodejs() {
       echo $?
 
       echo -e "${color} setup SystemD service ${nocolor}"
-      cp /home/centos/robosho-shell/${component}.service /etc/systemd/system/${component}.service   &>>log_file
+      cp /home/centos/robosho-shell/$component.service /etc/systemd/system/$component.service   &>>log_file
       echo $?
 
 
       echo -e "${color} Reload repo ${nocolor}"
       systemctl daemon-reload   &>>log_file
       echo $?
-      systemctl enable component   &>>log_file
+      systemctl enable $component   &>>log_file
       echo $?
-      systemctl restart component    &>>log_file
+      systemctl restart $component    &>>log_file
       echo $?
 
 
@@ -69,6 +69,6 @@ mongo_schema_repo() {
       echo $?
 
       echo -e "${color} Load Schema${nocolor}"
-      mongo --host mongodb-dev.devopspractice.lol </app/schema/component.js &>>log_file
+      mongo --host mongodb-dev.devopspractice.lol <${app_path}/schema/$component.js &>>log_file
       echo $?
 }
