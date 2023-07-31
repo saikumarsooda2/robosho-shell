@@ -5,6 +5,7 @@ nocolor="\e[0m"
 app_path="/app"
 log_file="/tmp/roboshop.log"
 
+
 echo -e "${color}  Downloading the nodejs repo ${nocolor}"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>log_file
 echo $?
