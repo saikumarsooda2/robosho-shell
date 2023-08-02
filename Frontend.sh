@@ -17,7 +17,7 @@ unzip /tmp/frontend.zip &>>/tmp/roboshop.log
 status_check $?
 
 echo -e "\e[33m copying the roboshop config file \e[0m"
-cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
+cp /home/centos/robosho-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
 status_check $?
 
 echo -e "\e[33m enabling the nginx server \e[0m"
