@@ -103,7 +103,7 @@ mongo_schema_repo() {
       status_check $?
 
       echo -e "${color} Load Schema${nocolor}"
-      mongo --host mongodb-dev.devopspractice.lol <${app_path}/schema/$component.js &>>log_file
+      mongo --host mongodb-dev.devopspractice.lol <${app_path}/schema/${component}.service &>>log_file
       status_check $?
 }
 
