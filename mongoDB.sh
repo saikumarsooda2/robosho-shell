@@ -1,3 +1,4 @@
+source common.sh
 echo -e "\e[33m copy  mongoDB repo\e[0m"
 cp /home/centos/robosho-shell/mongo.repo /etc/yum.repos.d/mongo.repo     &>>/tmp/roboshop.log
  status_check $?

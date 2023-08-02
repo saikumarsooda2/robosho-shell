@@ -1,3 +1,4 @@
+source common.sh
 echo -e "\e[33m installing redis repo\e[0m"
 yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>/tmp/roboshop.log
 status_check $?

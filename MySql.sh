@@ -1,3 +1,4 @@
+source common.sh
 echo -e "\e[33m Disable Mysql default \e[0m"
 yum module disable mysql -y   &>>/tmp/roboshop.log
 status_check $?
