@@ -39,7 +39,7 @@ app_presetup() {
         status_check $?
 }
 
-    sytstemD_setup() {
+    systemD_setup() {
 
       echo -e "${color} setup SystemD service ${nocolor}"
       cp /home/centos/robosho-shell/${component}.service /etc/systemd/system/${component}.service   &>>log_file
@@ -103,7 +103,7 @@ mongo_schema_repo() {
       status_check $?
 
       echo -e "${color} Load Schema${nocolor}"
-      mongo --host mongodb-dev.devopspractice.lol <${app_path}/schema/${component}.service &>>log_file
+      mongo --host mongodb-dev.devopspractice.lol <${app_path}/schema/$component.js &>>log_file
       status_check $?
 }
 
