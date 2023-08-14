@@ -120,3 +120,40 @@ python() {
 
   systemD_setup
 }
+
+
+
+
+
+
+
+
+      - name: removing directory
+         ansible.builtin.file:
+          path: /usr/share/nginx/html
+          state: absent
+
+      - name: create a directory
+         ansible.builtin.file:
+          path: /usr/share/nginx/html
+          state: directory
+
+      - name: download and extract the file
+        ansible.builtin.unarchive:
+          src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+          dest: /usr/share/nginx/html
+          remote_src: yes
+
+      - name: Copy the roboshop file
+        ansible.builtin.copy:
+          src: roboshop.conf
+          dest: /etc/nginx/default.d/roboshop.conf
+
+      - name: start and enable nginx
+        ansible.builtin.systemd:
+          state: restarted
+          name: nginx
+          enabled: true
+
+
+
